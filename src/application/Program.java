@@ -37,8 +37,12 @@ public class Program {
                 }
                 if (chm.getPromoted()!= null){
                     System.out.println("Enter piece for promotion: ");
-                    String type=sc.nextLine();
-                    chm.replacePromotedPiece(type);
+                    String type=sc.nextLine().toUpperCase();
+                    while (!type.equals("B")&& !type.equals("N")&& !type.equals("R")&& !type.equals("Q")) {
+                        System.out.println("Invalid value! Enter piece for promotion: ");
+                         type=sc.nextLine().toUpperCase();
+                    }
+                        chm.replacePromotedPiece(type);
 
                 }
             }catch (ChessException | InputMismatchException e){
